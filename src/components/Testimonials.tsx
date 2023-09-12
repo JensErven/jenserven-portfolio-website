@@ -17,7 +17,6 @@ const Testimonials = () => {
     backgroundImage:
       "linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)",
     padding: "15px 15px",
-    textAlign: "center",
     textTransform: "uppercase",
     transition: "0.5s",
     backgroundSize: "200% auto",
@@ -26,6 +25,7 @@ const Testimonials = () => {
     display: "inline-block", // Keep it inline to wrap the icons
     cursor: "pointer", // Add cursor pointer for interaction
   };
+
   return (
     <section className="text-center flex flex-col items-center">
       <h3>Testimonials</h3>
