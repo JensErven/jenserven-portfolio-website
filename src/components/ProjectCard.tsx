@@ -5,7 +5,7 @@ import "../../styles/ProjectCard.css"; // Import the CSS file
 const ProjectCard = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: any) => {
     const card = e.currentTarget;
     const boundingBox = card.getBoundingClientRect();
     const cardCenterX = boundingBox.left + boundingBox.width / 2;
