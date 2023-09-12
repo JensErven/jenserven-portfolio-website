@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonFilter from "./Shared/ButtonFilter";
 import ProjectCard from "./ProjectCard";
+import ButtonRegular from "./Shared/ButtonRegular";
 
 const MyProjects = () => {
   const buttonFilterContent = ["All", "Web Development", "Mobile App", "VR"];
@@ -20,6 +21,9 @@ const MyProjects = () => {
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
+      </div>
+      <div className="pt-8">
+        <ButtonRegular text="show more" />
       </div>
     </section>
   );

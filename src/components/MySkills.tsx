@@ -13,6 +13,7 @@ import {
   FaArrowLeft,
   FaPhp,
   FaCss3,
+  FaUnity,
 } from "react-icons/fa";
 
 const MySkills = () => {
@@ -52,6 +53,12 @@ const MySkills = () => {
       description:
         "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
       icon: <FaPhp size={40} className="fill-sky-600" />,
+    },
+    {
+      title: "Unity",
+      description:
+        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+      icon: <FaUnity size={40} className="fill-slate-100" />,
     },
   ];
   const [rotation, setRotation] = useState(0);

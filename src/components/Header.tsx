@@ -1,9 +1,16 @@
+"use client";
 import React from "react";
 import ButtonRegular from "./Shared/ButtonRegular";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <header className="mt-40">
+    <motion.div
+      className="mt-40"
+      initial={{ opacity: 0, x: -200 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
+    >
       <p>
         Hello, <span style={{ color: "#f9a082" }}>my name is</span>
       </p>
@@ -14,7 +21,7 @@ const Header = () => {
         From Belgium, Leuven.
       </h2>
       <ButtonRegular text={"My projects"} />
-    </header>
+    </motion.div>
   );
 };
 

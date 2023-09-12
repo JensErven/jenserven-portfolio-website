@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
+import { motion } from "framer-motion";
 
 const raleway = Raleway({ subsets: ["cyrillic"], weight: ["700", "200"] });
 
