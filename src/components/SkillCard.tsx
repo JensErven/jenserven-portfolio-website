@@ -1,18 +1,22 @@
 import React from "react";
+import {
+  FaAndroid,
+  FaArrowRight,
+  FaHtml5,
+  FaJava,
+  FaReact,
+} from "react-icons/fa";
 
-const SkillCard = () => {
+const SkillCard = ({ skillInfo }: { skillInfo: any }) => {
   return (
-    <div className="text-left">
+    <div className="text-center  flex flex-col items-center">
       <div
-        className="w-14 h-14 bg-slate-900 rounded-full hover:rotate-12 ease-in-out 1s"
+        className="w-14 h-14 bg-slate-900 rounded-full hover:rotate-12 ease-in-out 1s justify-center items-center flex p-4"
         style={{ boxShadow: "2px 1px 1px #f9a082" }}
-      ></div>
-      <h4 className="mt-4">Lorem ipsum dolor sit.</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore quos
-        tempore a dolore ipsa amet consequuntur fugiat eveniet minima rerum
-        expedita itaque optio.
-      </p>
+      >
+        {skillInfo.icon}
+      </div>
+      <h4 className="mt-4">{skillInfo.title}</h4>
     </div>
   );
 };
