@@ -27,7 +27,7 @@ const TestimonialCard = () => {
 
       <div className="testimonial-author text-center items-center flex flex-col">
         <div className="testimonial-underline-div"></div>
-        <h5>Lorem, ipsum.</h5>
+        <h5>Gil Geron</h5>
         <span>Studio Narrata</span>
       </div>
     </div>

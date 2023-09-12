@@ -6,7 +6,7 @@ import { skip } from "node:test";
 const ProjectCard = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
-  const skillTags = ["Javascript", "React", "Tailwind", "Rest API"];
+  const skillTags = ["Javascript", "React", "Tailwind"];
 
   const handleMouseMove = (e: any) => {
     const card = e.currentTarget;
@@ -44,12 +44,12 @@ const ProjectCard = () => {
         officia expedita tempore saepe amet aliquid!
       </p>
       <div
-        className="flex flex-row rounded-full px-4   w-fit py-2"
+        className="flex flex-row rounded-full px-4   w-fit py-2 "
         style={{ backgroundColor: "#0f172a", color: "whitesmoke" }}
       >
         {skillTags.map((skill, index) => (
-          <div className="flex flex-row" key={index}>
-            <div className="skillTag">{skill}</div>
+          <div className="flex flex-row " key={index}>
+            <div className="skillTag ">{skill}</div>
             {index !== skillTags.length - 1 && ( // Render the span if it's not the last skill
               <span
                 style={{

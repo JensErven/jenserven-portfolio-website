@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   FaAddressBook,
   FaAddressCard,
@@ -10,8 +11,49 @@ import {
   FaVoicemail,
 } from "react-icons/fa";
 import ButtonRegular from "./Shared/ButtonRegular";
+import ButtonFormSubmit from "./Shared/ButtonFormSubmit";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    // Here, you can build the data object to be sent to formsubmit.co
+    const formDataForSubmit = {
+      name,
+      email,
+
+      description,
+      // Add other fields as needed
+    };
+
+    console.log(formDataForSubmit);
+
+    // Now, you can use this formDataForSubmit to pre-fill the hidden form
+    const hiddenForm = document.getElementById("hiddenForm");
+    if (hiddenForm) {
+      Object.keys(formDataForSubmit).forEach((key) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = formDataForSubmit[key];
+        hiddenForm.appendChild(input);
+      });
+      clearInputForm();
+      // Submit the hidden form
+      hiddenForm.submit();
+    }
+  };
+
+  const clearInputForm = () => {
+    setName("");
+    setEmail("");
+    setSubject("");
+    setDescription("");
+  };
   return (
     <section className="text-center flex flex-col items-center w-full ">
       <h3>Contact</h3>
@@ -84,7 +126,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="w-full h-full shadow-slate-400">
-          <form action="" className="text-left p-4">
+          <form onSubmit={handleSubmit} className="text-left p-4">
             <h5>Leave a message</h5>
             <div className="underline-div"></div>
             <div className="mb-4">
@@ -92,6 +134,8 @@ const Contact = () => {
                 Name
               </label>
               <input
+                required
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 id="name"
                 name="name"
@@ -106,6 +150,8 @@ const Contact = () => {
                 Email
               </label>
               <input
+                required
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 id="email"
                 name="email"
@@ -120,6 +166,8 @@ const Contact = () => {
                 Subject
               </label>
               <input
+                required
+                onChange={(e) => setSubject(e.target.value)}
                 type="text"
                 id="subject"
                 name="subject"
@@ -134,15 +182,37 @@ const Contact = () => {
                 Message
               </label>
               <textarea
+                required
+                onChange={(e) => setDescription(e.target.value)}
                 id="message"
                 name="message"
-                rows="4"
+                rows="5"
                 className="w-full bg-slate-800 border border-slate-700 rounded-md py-2 px-3 text-white focus:outline-none focus:border-cyan-400"
               ></textarea>
             </div>
-            <ButtonRegular text="Send Message" />
+            <ButtonFormSubmit text="send message" />
           </form>
         </div>
+
+        {/* Hidden form for formsubmit.co */}
+        <form
+          id="hiddenForm"
+          action="https://formsubmit.co/2559eb5226d88fcf48f2cfe622bfabc4"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_next"
+            value="https://jenserven-portfolio-website.vercel.app/message-send"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="name" />
+          <input type="hidden" name="email" />
+          <input type="hidden" name="_subject" value={subject} />
+          <input type="hidden" name="description" />
+          {/* Add other hidden input fields as needed */}
+        </form>
       </div>
     </section>
   );
