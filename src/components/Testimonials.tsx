@@ -32,7 +32,7 @@ const Testimonials = () => {
       <h5>Review from clients</h5>
       <div className="underline-div"></div>
 
-      <div className="mt-4  py-14 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-x-8 gap-y-14 rounded-lg">
+      <div className="mt-4  pb-14 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-14 rounded-lg">
         <TestimonialCard />
         <TestimonialCard />
         <TestimonialCard />
