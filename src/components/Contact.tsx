@@ -17,9 +17,9 @@ const Contact = () => {
       <h3>Contact</h3>
 
       <div className="underline-div"></div>
-      <div className="rounded-lg  grid sm:grid-cols-1 md:grid-cols-2 w-2/3 shadow-inner shadow-slate-700">
+      <div className="rounded-lg  grid sm:grid-cols-1 md:grid-cols-2   shadow-inner shadow-slate-700 w-full lg:w-2/3">
         <div
-          className="flex flex-col gap-y-8 justify-center px-14 sm:px-5 gap-14 py-8 rounded-bl-lg rounded-tl-lg"
+          className="flex flex-col gap-y-8 justify-center px-4 gap-14 py-8 rounded-bl-lg rounded-tl-lg"
           style={{ backgroundColor: "#242e47" }}
         >
           <div className="flex flex-row gap-y-4 gap-x-4">
