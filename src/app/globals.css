@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  
+
+}
+
+section{
+  padding: 14px;
+  margin: 25px 0px;
+}
+
+span{
+  color: #f9a082;
+}
+
+h1{
+  font-size: 4rem;
+  font-weight: 800;
+  color: #f9a082
+;
+}
+
+h2{
+  color: whitesmoke;
+  font-size: 2rem;
+  font-weight: 500;}
+
+
+  h3{
+  color: #f9a082;
+  font-size:2rem;
+  font-weight: 500;
+  }
+
+  h4{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: whitesmoke;
+  }
+
+  h5{
+    color: whitesmoke;
+    font-size: 1.5rem;
+  }
+p{
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.underline-div{
+  border-radius: 2px;
+  margin: 15px 0px;
+  width: 10vw;
+  height: 4px;
+  background-image:  linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
+}
+
+/* buttons */
+
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.container{
+  width: fit-content;
+}
+
+.btn {
+  padding: 15px 45px;
+  border-radius: 10px;
+  color: white; 
+  border: 1px solid   #DD2476;         
+  white-space: nowrap; /* Prevent text from wrapping to multiple lines */
+
+  cursor: pointer;
+}
+.gradient-follower {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff5733, #fddb92);
+  pointer-events: none; /* Allows mouse events to pass through */
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Ensure it's on top of other content */
+}
+

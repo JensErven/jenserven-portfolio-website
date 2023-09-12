@@ -1,0 +1,8 @@
+.project-card {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  
+  .project-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
