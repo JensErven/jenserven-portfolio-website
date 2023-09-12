@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className} xl:mx-48 lg:mx-20 mx-4 `}
+        className={`${raleway.className}  lg:mx-20 xl:mx-32 2xl:mx-64 mx-4`}
         style={{ backgroundColor: "#0f172a" }}
       >
         {children}
