@@ -1,4 +1,5 @@
 export default function Page({ params }: { params: { projectId: number } }) {
+  console.log(params.projectId);
   return (
     <div
       className="flex w-full  mt-40 rounded-lg p-4 items-center justify-center shadow-lg"
