@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
   
 
@@ -132,6 +136,13 @@ p{
   animation: rotate 20s infinite;
 }
 
+#blob-container{
+  z-index: -50;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
 
 .random-blob{
   position: fixed;
@@ -164,7 +175,7 @@ p{
 @keyframes rotate {
   from{
     rotate: 0deg;
-    filter: blur(150px);
+    filter: blur(50px);
   }
 
   50%{
@@ -173,6 +184,7 @@ p{
   }
   to{
     rotate: 360deg;
-    filter: blur(150px);
+    filter: blur(50px);
   }
 }
+

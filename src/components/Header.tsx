@@ -2,11 +2,12 @@
 import React from "react";
 import ButtonRegular from "./Shared/ButtonRegular";
 import { motion } from "framer-motion";
+import Link from "next/link"; // Import Link from Next.js
 
 const Header = () => {
   return (
     <motion.div
-      className="mt-40"
+      className=" md:mt-40 lg:mt-40 mt-32 "
       initial={{ opacity: 0, x: -200 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
@@ -20,7 +21,6 @@ const Header = () => {
         <br></br>
         From Belgium, Leuven.
       </h2>
-      <ButtonRegular text={"My projects"} />
     </motion.div>
   );
 };

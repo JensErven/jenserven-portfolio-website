@@ -1,7 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimation,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 
 const BlobContainer = () => {
+  const controls = useAnimation();
+  const mouseX = useMotionValue(0); // Initialize a motion value for the mouse x position
+  const containerX = useTransform(mouseX, [0, window.innerWidth], [-50, 50]);
+
   useEffect(() => {
     const numBlobs = 15; // Adjust the number of blobs
     const blobContainer = document.getElementById("blob-container");
@@ -23,8 +33,26 @@ const BlobContainer = () => {
       blob.style.animationDuration = `${Math.random() * 10 + 5}s`;
       blob.style.animationDelay = `${Math.random() * 5}s`;
     }
-  }, []);
-  return <div id="blob-container"></div>;
-};
 
+    // Update mouseX motion value with mouse x position
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX); // Update mouseX value with mouse x position
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [mouseX]);
+
+  return (
+    <motion.div
+      id="blob-container"
+      className="blob-container"
+      animate={{ x: containerX }}
+    />
+  );
+};
 export default BlobContainer;
