@@ -28,7 +28,7 @@ const BlobContainer = () => {
       blob.style.height = `${blobSize}px`;
 
       blobContainer.appendChild(blob);
-
+      console.log("blobs come here!");
       // Add animation delay and duration
       blob.style.animationDuration = `${Math.random() * 10 + 5}s`;
       blob.style.animationDelay = `${Math.random() * 5}s`;
