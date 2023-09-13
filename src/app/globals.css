@@ -188,3 +188,30 @@ p{
   }
 }
 
+
+/* skilltag*/
+.skillTags-container {
+  
+  display: flex;
+
+ 
+
+}
+
+.skillTags-container.animated {
+  
+  
+
+  animation: scrollText 5s  ease-in  infinite; /* Adjust the animation duration */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+
+
+  100% {
+    transform: translateX(-125%); /* Move the text to the left */
+  }
+}

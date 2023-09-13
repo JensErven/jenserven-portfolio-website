@@ -28,7 +28,7 @@ const MyProjects = () => {
       title: "RSCA soccerclub",
       previewDescription:
         "This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. ",
-      skillTags: ["Android Studio", "XML", "Kotlin", "Rest API"],
+      skillTags: ["Android Studio", "XML", "Kotlin", "Rest API", "Kotlin"],
     },
     {
       category: "Web Development",
@@ -54,7 +54,7 @@ const MyProjects = () => {
     console.log(projects);
   }, []);
   return (
-    <section className="text-center flex flex-col items-center ">
+    <section className="text-center flex flex-col items-center  ">
       <h3>My latest projects</h3>
       <h5>See what I can make</h5>
       <div className="underline-div"></div>

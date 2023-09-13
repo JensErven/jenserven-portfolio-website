@@ -112,18 +112,6 @@ const Contact = () => {
               <p>Belgium, Leuven</p>
             </div>
           </div>
-          <div className="flex flex-row gap-y-4 gap-x-4">
-            <div
-              className="w-14 h-14 bg-slate-900 rounded-full  ease-in-out 1s justify-center items-center flex p-4"
-              style={{ boxShadow: "2px 1px 1px #f9a082" }}
-            >
-              <FaLinkedin size={40} className="fill-slate-100" />
-            </div>
-            <div className="text-left">
-              <h5>LinkedIn</h5>
-              <p>jens.erven@gmail.com</p>
-            </div>
-          </div>
         </div>
         <div className="w-full h-full shadow-slate-400">
           <form onSubmit={handleSubmit} className="text-left p-4">

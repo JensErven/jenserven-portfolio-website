@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: any }) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
 
   const skillTags = ["Javascript", "React", "Tailwind"];
 
@@ -24,25 +25,33 @@ const ProjectCard = ({ project }: { project: any }) => {
     setTilt({ x: tiltX, y: tiltY });
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true); // Set hover state to true
+  };
+
   const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
+    setIsHovered(false); // Set hover state to false
+    setTilt({ x: 0, y: 0 }); // Reset tilt when mouse leaves
   };
   return (
     <Link href={`/projects/${project.projectId}`}>
       <div
-        className="project-card bg-black rounded-lg p-4 h-fit text-left shadow-lg cursor-pointer pb-16"
+        className={`project-card  rounded-lg p-4 h-fit text-left shadow-lg  cursor-pointer  ${
+          isHovered ? "hovered" : "" // Apply the 'hovered' class when hovered
+        }`}
         style={{
           minHeight: "100%",
           backgroundColor: "#242e47",
           transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
         }}
         onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div className="projectcard-imagepreview w-full  bg-black h-48 rounded-lg lg:h-48 xl:h-64 md:h-48 sm:h-48"></div>
 
         <h5 className="mt-4 capitalize">{project.title}</h5>
-        <p className="pb-4 ">
+        <p className="pb-4 " style={{ minHeight: "100px" }}>
           {project.previewDescription.slice(0, 140)}
           {project.previewDescription.length > 140 && (
             <>
@@ -52,25 +61,31 @@ const ProjectCard = ({ project }: { project: any }) => {
           )}
         </p>
         <div
-          className="flex flex-row rounded-lg px-4   w-fit py-2 absolute bottom-4"
+          className="p-2 rounded-lg  overflow-hidden"
           style={{ backgroundColor: "#0f172a", color: "whitesmoke" }}
         >
-          {project.skillTags.map((skill: string, index: number) => (
-            <div className="flex flex-row " key={index}>
-              <div className="skillTag ">{skill}</div>
-              {index !== project.skillTags.length - 1 && ( // Render the span if it's not the last skill
-                <span
-                  style={{
-                    color: "#f9a082",
-                    fontWeight: "bolder",
-                    padding: "0px 8px",
-                  }}
-                >
-                  |
-                </span>
-              )}
-            </div>
-          ))}
+          <div
+            className={`skillTags-container flex flex-row  ${
+              isHovered ? "animated" : ""
+            }`}
+          >
+            {project.skillTags.map((skill: string, index: number) => (
+              <div className="flex flex-row" key={index}>
+                <div className="skillTag line-clamp-1 ">{skill}</div>
+                {index !== project.skillTags.length - 1 && ( // Render the span if it's not the last skill
+                  <span
+                    style={{
+                      color: "#f9a082",
+                      fontWeight: "bolder",
+                      padding: "0px 8px",
+                    }}
+                  >
+                    |
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Link>
