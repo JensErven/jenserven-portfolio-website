@@ -23,7 +23,7 @@ const BlobContainer = () => {
       blob.style.top = `${Math.random() * 100}vh`; // Random vertical position
 
       // Randomize blob sizes between 50px and 150px
-      const blobSize = Math.random() * (150 - 50) + 50;
+      const blobSize = Math.random() * (150 - 50) + 150;
       blob.style.width = `${blobSize}px`;
       blob.style.height = `${blobSize}px`;
 
