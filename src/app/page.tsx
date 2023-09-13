@@ -20,12 +20,15 @@ export default function Home() {
         <section>
           <MySkills />
         </section>
+
         <section id="my-projects-section">
           <MyProjects />
         </section>
+
         <section>
           <Testimonials />
         </section>
+
         <section>
           <Contact />
         </section>
