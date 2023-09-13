@@ -141,6 +141,7 @@ p{
   border-radius: 50%;
   z-index: -50;
   animation: moveBlob 10s infinite linear; /* Adjust animation duration */
+  filter: blur(10px);
 }
 
 @keyframes moveBlob {
