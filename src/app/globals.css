@@ -116,4 +116,62 @@ p{
 }
 
 
+/* mouse cursor blob*/
 
+#blob{
+
+  height: 70vh;
+  aspect-ratio: 1;
+  position: fixed;
+  left: 50%;
+  top:50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #0f172a, #050912);
+  z-index: -50;
+  animation: rotate 20s infinite;
+}
+
+
+.random-blob{
+  position: fixed;
+  width: 100px; /* Adjust blob size as needed */
+  height: 100px; /* Adjust blob size as needed */
+  background: linear-gradient(to right, #0f172a, #000);
+  border-radius: 50%;
+  z-index: -50;
+  animation: moveBlob 10s infinite linear; /* Adjust animation duration */
+}
+
+@keyframes moveBlob {
+  0% {
+    transform: translateY(0) translateX(0);
+    filter: blur(10px);
+  }
+  50% {
+    transform: translateY(-10vh) translateX(10vw); /* Adjust the floating motion */
+    filter: blur(5px);
+  }
+  100% {
+   
+    transform: translateY(0) translateX(0);
+    filter: blur(10px);
+  }
+}
+
+
+@keyframes rotate {
+  from{
+    rotate: 0deg;
+    filter: blur(150px);
+  }
+
+  50%{
+    scale: 1 1.2;
+    filter: blur(100px);
+  }
+  to{
+    rotate: 360deg;
+    filter: blur(150px);
+  }
+}
