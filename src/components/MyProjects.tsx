@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import ButtonFilter from "./Shared/ButtonFilter";
 import ProjectCard from "./ProjectCard";
 import ButtonRegular from "./Shared/ButtonRegular";
+import image from "../../public/images/import & cook img1.png";
 
 const MyProjects = () => {
   const projects = [
@@ -10,6 +11,7 @@ const MyProjects = () => {
       category: "Web Development",
       projectId: 1,
       title: "Group Expense Balancing",
+      previewImageUrl: "images/import & cook img1.png",
       previewDescription:
         "This is my first project. I built it using React and Tailwind.",
       skillTags: ["MySQL", "Laravel", "Php", "Docker"],
@@ -18,14 +20,16 @@ const MyProjects = () => {
       category: "Web Development",
       projectId: 2,
       title: "Save & Scraping Recipes",
+      previewImageUrl: "images/import & cook img1.png",
       previewDescription:
-        "This is my second project. I built it using Javascript and Node.js.",
+        "This application allows you to create a personal recipe book by importing recipes from any website or adding your own.",
       skillTags: ["Javascript", "Node.js", "Rest API", "CSS"],
     },
     {
       category: "Mobile App",
       projectId: 3,
       title: "RSCA soccerclub",
+      previewImageUrl: "images/import & cook img1.png",
       previewDescription:
         "This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. This is my third project. I built it using Python and Django. ",
       skillTags: ["Android Studio", "XML", "Kotlin", "Rest API", "Kotlin"],
@@ -33,6 +37,7 @@ const MyProjects = () => {
     {
       category: "Web Development",
       projectId: 4,
+      previewImageUrl: "images/import & cook img1.png",
       title: "lending inventory application",
       previewDescription:
         "This is my second project. I built it using Javascript and Node.js.",
@@ -42,6 +47,7 @@ const MyProjects = () => {
       category: "VR",
       projectId: 5,
       title: "VR courseproject",
+      previewImageUrl: "images/import & cook img1.png",
       previewDescription:
         "This is my third project. I built it using Python and Django.",
       skillTags: ["Unity", "C#", "Maya"],

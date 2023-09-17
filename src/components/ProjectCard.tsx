@@ -48,7 +48,12 @@ const ProjectCard = ({ project }: { project: any }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="projectcard-imagepreview w-full  bg-black h-48 rounded-lg lg:h-48 xl:h-64 md:h-48 sm:h-48"></div>
+        <div className="projectcard-imagepreview w-full  bg-black h-48 rounded-lg lg:h-56 xl:h-64 md:h-56 sm:h-56">
+          <img
+            src={`${project.previewImageUrl}`}
+            className="object-cover w-full h-full rounded-lg"
+          />
+        </div>
 
         <h5 className="mt-4 capitalize">{project.title}</h5>
         <p className="pb-4 " style={{ minHeight: "100px" }}>

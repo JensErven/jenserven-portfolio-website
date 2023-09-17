@@ -6,10 +6,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Link from "next/link"; // Import Link from Next.js
 import ButtonHeader from "@/components/Shared/ButtonHeader";
+import UnderDevelopment from "@/components/Shared/UnderDevelopment";
 
 export default function Home() {
   return (
     <main>
+      <UnderDevelopment />
       <div className=" ">
         <section>
           <Header />

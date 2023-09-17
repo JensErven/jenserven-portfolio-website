@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         {" "}
         <BlobContainer />
-        <BlobMouseCursor />
+        {/*       <BlobMouseCursor />*/}
         {children}
       </body>
     </html>

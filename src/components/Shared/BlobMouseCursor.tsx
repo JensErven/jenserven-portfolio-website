@@ -34,16 +34,15 @@ const BlobMouseCursor = () => {
     };
   }, []);
 
-  return (
-    <div
+  return <></>;
+};
+
+export default BlobMouseCursor;
+/*    <div
       id="blob"
       style={{
         left: `${blobPosition.x}px`,
         top: `${blobPosition.y}px`,
         filter: `blur(${blurLevel}px)`, // Apply the blur effect
       }}
-    ></div>
-  );
-};
-
-export default BlobMouseCursor;
+    ></div>*/
