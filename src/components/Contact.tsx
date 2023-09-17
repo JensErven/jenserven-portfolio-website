@@ -85,7 +85,14 @@ const Contact = () => {
             </div>
             <div className="text-left">
               <h5>LinkedIn</h5>
-              <p>jens.erven@gmail.com</p>
+              <p>
+                <a
+                  className="hover:underline"
+                  href="https://www.linkedin.com/in/jens-erven-9b9758194/"
+                >
+                  Follow link
+                </a>
+              </p>
             </div>
           </div>
           <div className="flex flex-row gap-y-4 gap-x-4">
@@ -97,7 +104,7 @@ const Contact = () => {
             </div>
             <div className="text-left">
               <h5>Number</h5>
-              <p>0491739078</p>
+              <p>+ 32 491 73 90 78</p>
             </div>
           </div>
           <div className="flex flex-row gap-y-4 gap-x-4">
