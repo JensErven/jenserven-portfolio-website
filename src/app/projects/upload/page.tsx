@@ -47,10 +47,13 @@ const page = () => {
         return (
           <>
             <Step1 formData={formData} setFormData={setFormData} />
-            <div className="btn-steps-container">
+            <div className="btn-steps-container  ">
               {step == 1 && (
                 <>
-                  <button className="button next-btn" onClick={nextStep}>
+                  <button
+                    className="button next-btn px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700 "
+                    onClick={nextStep}
+                  >
                     Volgende
                     <span className="font-bold text-black ml-2">{" > "}</span>
                   </button>
@@ -64,12 +67,15 @@ const page = () => {
           <>
             {" "}
             <Step2 formData={formData} setFormData={setFormData} />
-            <div className="btn-steps-container">
+            <div className="btn-steps-container flex flex-row gap-x-4">
               {step == 2 && (
                 <>
-                  <button className="button next-btn" onClick={prevStep}>
+                  <button
+                    className="button next-btn px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700"
+                    onClick={prevStep}
+                  >
+                    <span className="font-bold text-white ml-2">{" < "}</span>
                     Vorige
-                    <span className="font-bold text-black ml-2">{" > "}</span>
                   </button>
                   <button
                     disabled={loading ? true : false}
@@ -92,7 +98,11 @@ const page = () => {
         );
     }
   };
-  return <div>{renderForm()}</div>;
+  return (
+    <div className="flex flex-col mx-auto w-11/12 md:w-2/4 lg:w-1/3 xl:w-1/3 mt-20 gap-y-4">
+      {renderForm()}
+    </div>
+  );
 };
 
 export default page;

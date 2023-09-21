@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import ButtonRegular from "./Shared/ButtonRegular";
 import ButtonFormSubmit from "./Shared/ButtonFormSubmit";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -58,7 +59,12 @@ const Contact = () => {
     <section className="text-center flex flex-col items-center w-full ">
       <h3>Contact</h3>
 
-      <div className="underline-div"></div>
+      <motion.div
+        className="underline-div"
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
+      ></motion.div>
       <div className="rounded-lg  grid sm:grid-cols-1 md:grid-cols-2   shadow-inner shadow-slate-700 w-full lg:w-2/3">
         <div
           className="flex flex-col gap-y-8 justify-center px-4 gap-14 py-8 rounded-bl-lg rounded-tl-lg"

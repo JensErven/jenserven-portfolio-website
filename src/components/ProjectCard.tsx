@@ -65,9 +65,14 @@ const ProjectCard = ({ project }: { project: any }) => {
             </>
           )}
         </p>
+
         <div
-          className="p-2 rounded-lg  overflow-hidden"
-          style={{ backgroundColor: "#0f172a", color: "whitesmoke" }}
+          className="p-2 rounded-lg overflow-hidden "
+          style={{
+            backgroundColor: "#0f172a",
+            color: "whitesmoke",
+            // Make the container a flex container
+          }}
         >
           <div
             className={`skillTags-container flex flex-row  ${
@@ -77,7 +82,7 @@ const ProjectCard = ({ project }: { project: any }) => {
             {project.skillTags.map((skill: string, index: number) => (
               <div className="flex flex-row" key={index}>
                 <div className="skillTag line-clamp-1 ">{skill}</div>
-                {index !== project.skillTags.length - 1 && ( // Render the span if it's not the last skill
+                {index !== project.skillTags.length - 1 && (
                   <span
                     style={{
                       color: "#f9a082",

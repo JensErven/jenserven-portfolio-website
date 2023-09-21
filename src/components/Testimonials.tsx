@@ -4,6 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import TestimonialCard from "./TestimonialCard";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   const testimonials = [
@@ -81,7 +82,12 @@ const Testimonials = () => {
     <section className="text-center flex flex-col items-center">
       <h3>Testimonials</h3>
       <h5>Review from clients</h5>
-      <div className="underline-div"></div>
+      <motion.div
+        className="underline-div"
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
+      ></motion.div>
 
       <div
         className={`mt-4 pb-14 ${
