@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 html{
   scroll-behavior: smooth;
+  scroll-snap-stop: always;
+
 }
 
 :root {
-  
+  --font-raleway: 'Raleway', sans-serif;
+  --font-lato: 'Lato', sans-serif;  
 
 }
 
@@ -16,45 +22,65 @@ section{
   margin: 25px 0px;
 }
 
-span{
-  color: #f9a082;
-}
 
 h1{
-  font-size: 4rem;
+  line-height: 80px;
+  font-size: 80px;
   font-weight: 800;
-  color: #f9a082
-;
+  color: #f9a082;
+
 }
+
+
 
 h2{
   color: whitesmoke;
-  font-size: 2rem;
-  font-weight: 500;}
-
-
-  h3{
-  color: #f9a082;
-  font-size:2rem;
-  font-weight: 500;
-  }
-
-  h4{
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: whitesmoke;
-  }
-
-  h5{
-    color: whitesmoke;
-    font-size: 1.5rem;
-  }
-
-p{
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: whitesmoke;
+  font-size: 32px;
+  font-weight: 200;
 }
+
+h2 span{
+  font-weight: 800;
+  color: #f9a082;
+  text-shadow: #DD2476 1px 2px 1px ;
+}
+
+
+
+h3{
+  color: whitesmoke;
+  font-size: 24px;
+  font-weight: 200;
+}
+
+h3 span{
+  color: #f9a082;
+  font-weight: 800;
+}
+
+h1,h2,h3{
+  font-family: var(--font-raleway);
+}
+
+
+p, label{
+
+  font-size: 18px;
+  color: whitesmoke;
+  font-family: var(--font-lato);
+}
+
+p span{
+  font-weight: bolder;
+  color: #f9a082;
+}
+
+button{
+ font-style: uppercase;
+  font-weight: bolder;
+}
+
+
 
 .underline-div{
   border-radius: 2px;

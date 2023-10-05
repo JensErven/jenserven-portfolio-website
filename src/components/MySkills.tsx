@@ -73,8 +73,10 @@ const MySkills = () => {
   const angleBetweenButtons = (2 * Math.PI) / numButtons; // Convert to radians
   return (
     <section className="text-center flex flex-col items-center">
-      <h3>My Skills</h3>
-      <h5>What skills I have</h5>
+      <h2>
+        <span>My skills</span>
+      </h2>
+      <h3>What skills I have</h3>
       <div className="underline-div"></div>
       <div className="relative w-full rounded-lg">
         <div className=" relative  flex flex-wrap items-center justify-center gap-14 py-14 ">

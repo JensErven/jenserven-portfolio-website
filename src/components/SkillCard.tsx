@@ -11,7 +11,7 @@ import {
 const SkillCard = ({ skillInfo }: { skillInfo: any }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.1, y: 15 }}
+      whileHover={{ scale: 1.2, y: 20 }}
       className="text-center  flex flex-col items-center"
     >
       <div
@@ -20,7 +20,7 @@ const SkillCard = ({ skillInfo }: { skillInfo: any }) => {
       >
         {skillInfo.icon}
       </div>
-      <h4 className="mt-4">{skillInfo.title}</h4>
+      <h3 className="mt-2">{skillInfo.title}</h3>
     </motion.div>
   );
 };

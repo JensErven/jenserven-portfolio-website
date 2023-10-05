@@ -23,8 +23,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
 
       <div className="testimonial-author text-center items-center flex flex-col">
         <div className="testimonial-underline-div"></div>
-        <h5> {testimonial.client}</h5>
-        <span> {testimonial.project}</span>
+        <h3> {testimonial.client}</h3>
+        <p>
+          <span>{testimonial.project}</span>
+        </p>
       </div>
     </div>
   );

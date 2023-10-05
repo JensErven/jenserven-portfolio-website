@@ -36,7 +36,7 @@ const ProjectCard = ({ project }: { project: any }) => {
   return (
     <Link href={`/projects/${project.projectId}`}>
       <div
-        className={`project-card  rounded-lg p-4 h-fit text-left shadow-lg  cursor-pointer  ${
+        className={`project-card  rounded-lg h-fit text-left shadow-lg  cursor-pointer  ${
           isHovered ? "hovered" : "" // Apply the 'hovered' class when hovered
         }`}
         style={{
@@ -50,23 +50,35 @@ const ProjectCard = ({ project }: { project: any }) => {
       >
         <div className="projectcard-imagepreview w-full  bg-black h-48 rounded-lg lg:h-56 xl:h-64 md:h-56 sm:h-56">
           <img
-            src={`${project.previewImageUrl}`}
-            className="object-cover w-full h-full rounded-lg"
+            src={`${project.thumbnailUrl}`}
+            className="object-cover w-full h-full rounded-t-lg rounded-b-none border-pink-600 border-b-4"
           />
         </div>
+        <div className="p-4">
+          <h3 className="mt-4 capitalize font-bold ">Studio Narrata</h3>
+          <p className="pb-4 " style={{ minHeight: "fit-content" }}>
+            <span> Web Development</span>
 
-        <h5 className="mt-4 capitalize">{project.title}</h5>
-        <p className="pb-4 " style={{ minHeight: "100px" }}>
-          {project.previewDescription.slice(0, 140)}
-          {project.previewDescription.length > 140 && (
-            <>
-              {" "}
-              <span className="text-white">...</span>
-            </>
-          )}
-        </p>
+            {/* {project.previewDescription.slice(0, 140)}
+            {project.previewDescription.length > 140 && (
+              <>
+                {" "}
+                <span className="text-white">...</span>
+              </>
+            )} */}
+          </p>
+          <div className="flex-row gap-2 flex-wrap inline-flex">
+            {project.skillTags.map((skill: string, index: number) => (
+              <>
+                <p className=" px-2  border border-white border-solid  rounded-md capitalize">
+                  {skill}
+                </p>
+              </>
+            ))}
+          </div>
+        </div>
 
-        <div
+        {/* <div
           className="p-2 rounded-lg overflow-hidden "
           style={{
             backgroundColor: "#0f172a",
@@ -74,6 +86,7 @@ const ProjectCard = ({ project }: { project: any }) => {
             // Make the container a flex container
           }}
         >
+          
           <div
             className={`skillTags-container flex flex-row  ${
               isHovered ? "animated" : ""
@@ -81,7 +94,7 @@ const ProjectCard = ({ project }: { project: any }) => {
           >
             {project.skillTags.map((skill: string, index: number) => (
               <div className="flex flex-row" key={index}>
-                <div className="skillTag line-clamp-1 ">{skill}</div>
+                <div className="skillTag line-clamp-1 capitalize ">{skill}</div>
                 {index !== project.skillTags.length - 1 && (
                   <span
                     style={{
@@ -96,7 +109,7 @@ const ProjectCard = ({ project }: { project: any }) => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

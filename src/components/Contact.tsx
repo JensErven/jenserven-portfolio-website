@@ -57,7 +57,9 @@ const Contact = () => {
   };
   return (
     <section className="text-center flex flex-col items-center w-full ">
-      <h3>Contact</h3>
+      <h2>
+        <span>Contact</span>
+      </h2>
 
       <motion.div
         className="underline-div"
@@ -65,7 +67,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, scaleX: 1 }}
         transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
       ></motion.div>
-      <div className="rounded-lg  grid sm:grid-cols-1 md:grid-cols-2   shadow-inner shadow-slate-700 w-full lg:w-2/3">
+      <div className="rounded-lg  grid sm:grid-cols-1 md:grid-cols-2   shadow-inner shadow-slate-700 w-full xlg:w-2/3 lg:w-full md:w-full 2xl:w-2/3 ">
         <div
           className="flex flex-col gap-y-8 justify-center px-4 gap-14 py-8 rounded-bl-lg rounded-tl-lg"
           style={{ backgroundColor: "#242e47" }}
@@ -78,7 +80,7 @@ const Contact = () => {
               <FaVoicemail size={40} className="fill-slate-100" />
             </div>
             <div className="text-left">
-              <h5>Email</h5>
+              <h3>Email</h3>
               <p>jens.erven@gmail.com</p>
             </div>
           </div>
@@ -90,7 +92,7 @@ const Contact = () => {
               <FaLinkedin size={40} className="fill-slate-100" />
             </div>
             <div className="text-left">
-              <h5>LinkedIn</h5>
+              <h3>LinkedIn</h3>
               <p>
                 <a
                   className="hover:underline"
@@ -109,7 +111,7 @@ const Contact = () => {
               <FaPhone size={40} className="fill-slate-100" />
             </div>
             <div className="text-left">
-              <h5>Number</h5>
+              <h3>Number</h3>
               <p>+ 32 491 73 90 78</p>
             </div>
           </div>
@@ -121,14 +123,14 @@ const Contact = () => {
               <FaMapMarked size={40} className="fill-slate-100" />
             </div>
             <div className="text-left">
-              <h5>Adress</h5>
+              <h3>Adress</h3>
               <p>Belgium, Leuven</p>
             </div>
           </div>
         </div>
         <div className="w-full h-full shadow-slate-400">
           <form onSubmit={handleSubmit} className="text-left p-4">
-            <h5>Leave a message</h5>
+            <h3>Leave a message</h3>
             <div className="underline-div"></div>
             <div className="mb-4">
               <label htmlFor="name" className="block text-white font-bold mb-2">

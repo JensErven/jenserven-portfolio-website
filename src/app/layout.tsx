@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Raleway, Lato } from "next/font/google";
 import { motion } from "framer-motion";
 
 import BlobContainer from "@/components/Shared/BlobContainer";
@@ -22,11 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` relative ${raleway.className}  lg:mx-20 xl:mx-32 2xl:mx-64 mx-4`}
+        className={` relative ${raleway.className}   md:mx-[10vw]  lg:mx-[15vw]  xl:mx-[25vw] 2xl:mx-[15vw]  3xl:mx-[35vw] mx-4 `}
         style={{ backgroundColor: "#0f172a" }}
       >
-        {" "}
-        <BlobContainer />
+        {/* #141526 */} <BlobContainer />
         {/*       <BlobMouseCursor />*/}
         {children}
       </body>

@@ -17,7 +17,7 @@ const Testimonials = () => {
     {
       client: "John Smith",
       quote:
-        "Studio Narrata delivered exactly what we needed. Their attention to detail is commendable.",
+        "Studio Narrata delivered exactly what we needed. Their attention to detail is commendable. ",
       project: "Mobile App Development",
     },
     {
@@ -80,8 +80,10 @@ const Testimonials = () => {
 
   return (
     <section className="text-center flex flex-col items-center">
-      <h3>Testimonials</h3>
-      <h5>Review from clients</h5>
+      <h2>
+        <span>Testimonials</span>
+      </h2>
+      <h3>Review from clients</h3>
       <motion.div
         className="underline-div"
         initial={{ opacity: 0, scaleX: 0 }}

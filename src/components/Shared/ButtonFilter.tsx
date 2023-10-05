@@ -17,11 +17,19 @@ const ButtonFilter = ({
         active
           ? "bg-white text-black font-bold border-solid border-1-white border"
           : "bg-transparent text-white font-bold border-solid border-1-white border"
-      } px-4 py-2 rounded-lg focus:outline-none`}
+      } px-4 py-2 rounded-lg focus:outline-none flex gap-2 items-center flex-row w-fit`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => setActiveFilter(text)}
     >
+      {text === "All" ? (
+        <></>
+      ) : (
+        <>
+          {" "}
+          <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
+        </>
+      )}
       {text}
     </motion.button>
   );

@@ -65,3 +65,22 @@ export async function uploadProject(data) {
     // Additional error handling
   }
 }
+
+export async function getAllProjects() {
+  const projectsRef = collection(firestore, "projects");
+
+  try {
+    const querySnapshot = await getDocs(projectsRef);
+    const projects = [];
+
+    querySnapshot.forEach((doc) => {
+      projects.push({ id: doc.id, ...doc.data() });
+    });
+
+    return projects;
+  } catch (error) {
+    console.error("Error retrieving projects", error);
+    // Handle the error or return an empty array if needed
+    return [];
+  }
+}

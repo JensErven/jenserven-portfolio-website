@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Step2 from "@/components/upload/Step2";
 import { uploadProject } from "../../../../db/projects";
 import UploadSuccess from "./UploadSuccess";
+import Step3 from "@/components/upload/Step3";
 
 const page = () => {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,8 @@ const page = () => {
     category: "",
     skillTags: [],
     thumbnailFile: null,
+    websiteUrl: "",
+    githubUrl: "",
   });
 
   const nextStep = () => {
@@ -78,6 +81,33 @@ const page = () => {
                     Vorige
                   </button>
                   <button
+                    className="button next-btn px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700 "
+                    onClick={nextStep}
+                  >
+                    Volgende
+                    <span className="font-bold text-black ml-2">{" > "}</span>
+                  </button>
+                </>
+              )}
+            </div>
+          </>
+        );
+      case 3:
+        return (
+          <>
+            {" "}
+            <Step3 formData={formData} setFormData={setFormData} />
+            <div className="btn-steps-container flex flex-row gap-x-4">
+              {step == 3 && (
+                <>
+                  <button
+                    className="button next-btn px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700"
+                    onClick={prevStep}
+                  >
+                    <span className="font-bold text-white ml-2">{" < "}</span>
+                    Vorige
+                  </button>
+                  <button
                     disabled={loading ? true : false}
                     onClick={handleSubmit}
                     className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
@@ -89,7 +119,7 @@ const page = () => {
             </div>
           </>
         );
-      case 3:
+      case 4:
         return (
           <>
             {" "}
