@@ -173,7 +173,7 @@ const ProjectDetailsOverlay = ({
                   )}
                 </div>
               </div>
-              <div className="flex flex-row justify-between mt-4 pr-40">
+              <div className="flex flex-row justify-between mt-4 ">
                 <div>
                   <div className="flex flex-row items-center gap-2">
                     <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
