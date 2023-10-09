@@ -4,7 +4,7 @@ import ButtonRegular from "./Shared/ButtonRegular";
 import { motion } from "framer-motion";
 import Link from "next/link"; // Import Link from Next.js
 
-const Header = () => {
+const Banner = () => {
   return (
     <motion.div
       className=" md:mt-40 lg:mt-40 mt-32 "
@@ -23,4 +23,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Banner;

@@ -81,9 +81,9 @@ const Testimonials = () => {
   return (
     <section className="text-center flex flex-col items-center">
       <h2>
-        <span>Testimonials</span>
+        <span>Reviews</span>
       </h2>
-      <h3>Review from clients</h3>
+      <h3>Reviews from clients</h3>
       <motion.div
         className="underline-div"
         initial={{ opacity: 0, scaleX: 0 }}

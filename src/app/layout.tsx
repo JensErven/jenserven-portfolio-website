@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` relative ${raleway.className}   md:mx-[10vw]  lg:mx-[15vw]  xl:mx-[25vw] 2xl:mx-[15vw]  3xl:mx-[35vw] mx-4 `}
+        className={` ${raleway.className} relative   `}
         style={{ backgroundColor: "#0f172a" }}
       >
         {/* #141526 */} <BlobContainer />
-        {/*       <BlobMouseCursor />*/}
+        {/* <BlobMouseCursor /> */}
         {children}
       </body>
     </html>

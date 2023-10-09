@@ -14,6 +14,7 @@ import {
   FaPhp,
   FaCss3,
   FaUnity,
+  FaAngular,
 } from "react-icons/fa";
 
 const MySkills = () => {
@@ -25,7 +26,7 @@ const MySkills = () => {
       icon: <FaReact size={40} className="fill-cyan-400" />,
     },
     {
-      title: "HTML5",
+      title: "HTML",
       description:
         "Proficient in HTML5, the foundation of web development, to create structured and accessible web pages.",
       icon: <FaHtml5 size={40} className="fill-red-500" />,
@@ -59,6 +60,12 @@ const MySkills = () => {
       description:
         "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
       icon: <FaUnity size={40} className="fill-slate-100" />,
+    },
+    {
+      title: "Angular",
+      description:
+        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+      icon: <FaAngular size={40} className="fill-red-500" />,
     },
   ];
   const [rotation, setRotation] = useState(0);

@@ -58,7 +58,7 @@ h3 span{
   font-weight: 800;
 }
 
-h1,h2,h3{
+h1,h2,h3,h4{
   font-family: var(--font-raleway);
 }
 
@@ -76,10 +76,17 @@ p span{
 }
 
 button{
+  font-family: var(--font-raleway);
  font-style: uppercase;
   font-weight: bolder;
 }
 
+
+.h3-white-bold{
+  font-weight: 800;
+
+  color: whitesmoke;
+}
 
 
 .underline-div{
@@ -120,9 +127,18 @@ button{
 }
 
 .container{
+  padding: 4px;
   width: fit-content;
 }
 
+.goUP-button{
+  display: flex;
+  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  90%);
+
+}
 .btn {
   border:1px solid whitesmoke;/*
   background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);*/
@@ -132,6 +148,16 @@ button{
   white-space: nowrap; /* Prevent text from wrapping to multiple lines */
 
   cursor: pointer;
+}
+
+.secondary-button{
+  padding: 8px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  background-color: transparent;
+
 }
 
 .gradient-follower {
@@ -170,14 +196,14 @@ button{
 }
 
 
-.random-blob{
+.random-blob {
   position: fixed;
   width: 100px; /* Adjust blob size as needed */
   height: 100px; /* Adjust blob size as needed */
   background: linear-gradient(to right, #0f172a, #000);
   border-radius: 50%;
   z-index: -50;
-  animation: moveBlob 10s infinite linear; /* Adjust animation duration */
+  animation: moveBlob 20s infinite ease-in-out; /* Change the timing function to ease-in-out */
   filter: blur(10px);
 }
 
@@ -187,32 +213,19 @@ button{
     filter: blur(10px);
   }
   50% {
-    transform: translateY(-10vh) translateX(10vw); /* Adjust the floating motion */
+    transform: translateY(0vh) translateX(5vw); 
+    scale: 1.5;/* Adjust the floating motion */
     filter: blur(5px);
   }
   100% {
-   
     transform: translateY(0) translateX(0);
     filter: blur(10px);
+  
   }
 }
 
 
-@keyframes rotate {
-  from{
-    rotate: 0deg;
-    filter: blur(50px);
-  }
 
-  50%{
-    scale: 1 1.2;
-    filter: blur(100px);
-  }
-  to{
-    rotate: 360deg;
-    filter: blur(50px);
-  }
-}
 
 
 /* skilltag*/

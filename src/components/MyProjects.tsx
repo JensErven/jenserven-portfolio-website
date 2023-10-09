@@ -7,7 +7,13 @@ import image from "../../public/images/import & cook img1.png";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { getAllProjects } from "../../db/projects";
 
-const MyProjects = () => {
+const MyProjects = ({
+  openOverlay,
+  projectDetailsForOverlay,
+}: {
+  openOverlay: any;
+  projectDetailsForOverlay: any;
+}) => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
     const fetchProjects = async () => {
@@ -22,12 +28,10 @@ const MyProjects = () => {
   const [animateProjects, setAnimateProjects] = React.useState([]);
   useEffect(() => {
     if (activeFilter === "All") {
-      setAnimateProjects(projects.map((project) => project.projectId));
+      setAnimateProjects(projects);
     } else {
       setAnimateProjects(
-        projects
-          .filter((project) => project.category === activeFilter)
-          .map((project) => project.projectId)
+        projects.filter((project) => project.category === activeFilter)
       );
     }
   }, [activeFilter, projects]);
@@ -36,7 +40,7 @@ const MyProjects = () => {
 
   useEffect(() => {
     console.log(projects);
-  }, []);
+  }, [projects]);
 
   const springAnimation = {
     type: "spring",
@@ -64,14 +68,14 @@ const MyProjects = () => {
           />
         ))}
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4  gap-4">
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 grid-cols-2  gap-4  ">
         {activeFilter === "All" ? (
           <>
             {" "}
             <AnimatePresence>
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <motion.div
-                  key={project.projectId}
+                  key={index}
                   initial={{
                     x: -150,
                     opacity: 0,
@@ -92,10 +96,15 @@ const MyProjects = () => {
                   exit={{ opacity: 0, display: "none" }}
                   transition={{
                     duration: 1,
-                    delay: project.projectId * 0.2,
+                    delay: index * 0.2,
                   }}
                 >
-                  <ProjectCard key={project.projectId} project={project} />
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    openOverlay={openOverlay}
+                    projectDetailsForOverlay={projectDetailsForOverlay}
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -103,9 +112,9 @@ const MyProjects = () => {
         ) : (
           <>
             <AnimatePresence>
-              {animateProjects.map((projectId) => (
+              {animateProjects.map((project) => (
                 <motion.div
-                  key={projectId}
+                  key={project.id}
                   initial={{
                     x: -150,
                     opacity: 0,
@@ -125,13 +134,13 @@ const MyProjects = () => {
                   }}
                   transition={{
                     duration: 1,
-                    delay: projectId * 0.2,
+                    delay: 1 * 0.2,
                   }}
                 >
                   <ProjectCard
-                    project={projects.find(
-                      (project) => project.projectId === projectId
-                    )}
+                    project={project}
+                    openOverlay={openOverlay}
+                    projectDetailsForOverlay={projectDetailsForOverlay}
                   />
                 </motion.div>
               ))}
