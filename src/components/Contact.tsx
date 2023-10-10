@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   FaAddressBook,
   FaAddressCard,
+  FaGithub,
   FaLinkedin,
   FaLocationArrow,
   FaMailBulk,
@@ -13,6 +14,8 @@ import {
 import ButtonRegular from "./Shared/ButtonRegular";
 import ButtonFormSubmit from "./Shared/ButtonFormSubmit";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faStroopwafel } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -77,7 +80,11 @@ const Contact = () => {
               className="w-14 h-14 bg-slate-900 rounded-full  ease-in-out 1s justify-center items-center flex p-4"
               style={{ boxShadow: "2px 1px 1px #f9a082" }}
             >
-              <FaVoicemail size={40} className="fill-slate-100" />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                color="white"
+                fontSize="22px"
+              />
             </div>
             <div className="text-left">
               <h3>Email</h3>
@@ -98,7 +105,26 @@ const Contact = () => {
                   className="hover:underline"
                   href="https://www.linkedin.com/in/jens-erven-9b9758194/"
                 >
-                  Follow link
+                  View profile
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row gap-y-4 gap-x-4">
+            <div
+              className="w-14 h-14 bg-slate-900 rounded-full  ease-in-out 1s justify-center items-center flex p-4"
+              style={{ boxShadow: "2px 1px 1px #f9a082" }}
+            >
+              <FaGithub size={40} className="fill-slate-100" />
+            </div>
+            <div className="text-left">
+              <h3>Github</h3>
+              <p>
+                <a
+                  className="hover:underline"
+                  href="https://github.com/JensErven"
+                >
+                  View profile
                 </a>
               </p>
             </div>

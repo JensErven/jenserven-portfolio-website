@@ -7,7 +7,7 @@ import Link from "next/link"; // Import Link from Next.js
 const Banner = () => {
   return (
     <motion.div
-      className=" md:mt-40 lg:mt-40 mt-32 "
+      className=" md:mt-40 lg:mt-40 mt-[10vh]"
       initial={{ opacity: 0, x: -200 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
