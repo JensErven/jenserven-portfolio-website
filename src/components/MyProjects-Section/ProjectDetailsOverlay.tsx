@@ -90,7 +90,7 @@ const ProjectDetailsOverlay = ({
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="  flex flex-row justify-between px-8 py-4 ">
+            <div className="  flex flex-row justify-between mx-4 md:mx-6 lg:mx-8 py-4 ">
               {" "}
               <button onClick={handleCloseOverlay} style={buttonStyle}>
                 <FaArrowLeft
@@ -107,7 +107,7 @@ const ProjectDetailsOverlay = ({
             </div>
             <hr className="fill-slate-800 border border-slate-800 border-solid"></hr>
             <div
-              className="p-8 flex flex-col gap-8 custom-scrollbar-style pb-40"
+              className="flex flex-col gap-8 custom-scrollbar-style pb-40 mx-4 md:mx-6 lg:mx-8 pt-8"
               style={{ maxHeight: "100%", overflowY: "auto" }}
             >
               <div>
