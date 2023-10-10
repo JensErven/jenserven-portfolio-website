@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "../../styles/ProjectCard.css"; // Import the CSS file
+import "../../../styles/ProjectCard.css"; // Import the CSS file
 import { skip } from "node:test";
 import Link from "next/link";
 import {

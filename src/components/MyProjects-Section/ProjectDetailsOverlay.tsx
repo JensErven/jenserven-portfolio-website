@@ -10,7 +10,7 @@ import {
   FaPython,
   FaRegArrowAltCircleLeft,
 } from "react-icons/fa";
-import "../../styles/scrollbar.css";
+import "../../../styles/scrollbar.css";
 import { AnimatePresence, motion } from "framer-motion";
 
 const ProjectDetailsOverlay = ({

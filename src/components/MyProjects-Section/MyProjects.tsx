@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ButtonFilter from "./Shared/ButtonFilter";
+import ButtonFilter from "../Shared/ButtonFilter";
 import ProjectCard from "./ProjectCard";
-import ButtonRegular from "./Shared/ButtonRegular";
+import ButtonRegular from "../Shared/ButtonRegular";
 import image from "../../public/images/import & cook img1.png";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { getAllProjects } from "../../db/projects";
+import { getAllProjects } from "../../../db/projects";
 
 const MyProjects = ({
   openOverlay,

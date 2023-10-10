@@ -1,17 +1,17 @@
 "use client";
-import Header from "@/components/Banner";
-import MySkills from "@/components/MySkills";
-import MyProjects from "@/components/MyProjects";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
+import Header from "@/components/Banner-Section/Banner";
+import MySkills from "@/components/MySkills-Section/MySkills";
+import MyProjects from "@/components/MyProjects-Section/MyProjects";
+import Testimonials from "@/components/Testimonials-Section/Testimonials";
+import Contact from "@/components/Contact-Section/Contact";
 import ButtonHeader from "@/components/Shared/ButtonHeader";
 import UnderDevelopment from "@/components/Shared/UnderDevelopment";
 import { useState, useEffect } from "react";
-import ProjectDetailsOverlay from "@/components/ProjectDetailsOverlay";
+import ProjectDetailsOverlay from "@/components/MyProjects-Section/ProjectDetailsOverlay";
 import ButtonGoUp from "@/components/Shared/ButtonGoUp";
 import { motion, useAnimation } from "framer-motion";
 import NavBar from "@/components/Shared/NavBar";
-import Banner from "@/components/Banner";
+import Banner from "@/components/Banner-Section/Banner";
 
 export default function Home() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);

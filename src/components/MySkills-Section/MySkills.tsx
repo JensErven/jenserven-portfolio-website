@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import SkillCard from "./SkillCard";
-import "../../styles/MySkills.css";
+import "../../../styles/MySkills.css";
 import {
   FaAndroid,
   FaArrowRight,
@@ -15,6 +15,7 @@ import {
   FaCss3,
   FaUnity,
   FaAngular,
+  FaNodeJs,
 } from "react-icons/fa";
 
 const MySkills = () => {
@@ -67,6 +68,12 @@ const MySkills = () => {
         "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
       icon: <FaAngular size={40} className="fill-red-500" />,
     },
+    {
+      title: "NodeJs",
+      description:
+        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+      icon: <FaNodeJs size={40} className="fill-green-500" />,
+    },
   ];
   const [rotation, setRotation] = useState(0);
 
@@ -97,14 +104,3 @@ const MySkills = () => {
 };
 
 export default MySkills;
-/*      <div
-        className="mt-4 px-24 py-14 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-x-8 gap-y-14 rounded-lg shadow-xl"
-        style={{ backgroundColor: "#242e47" }}
-      >
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-      </div>*/

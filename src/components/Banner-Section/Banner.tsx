@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ButtonRegular from "./Shared/ButtonRegular";
+import ButtonRegular from "../Shared/ButtonRegular";
 import { motion } from "framer-motion";
 import Link from "next/link"; // Import Link from Next.js
 

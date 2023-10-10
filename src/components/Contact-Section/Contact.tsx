@@ -11,8 +11,8 @@ import {
   FaPhone,
   FaVoicemail,
 } from "react-icons/fa";
-import ButtonRegular from "./Shared/ButtonRegular";
-import ButtonFormSubmit from "./Shared/ButtonFormSubmit";
+import ButtonRegular from "../Shared/ButtonRegular";
+import ButtonFormSubmit from "../Shared/ButtonFormSubmit";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faStroopwafel } from "@fortawesome/free-solid-svg-icons";
