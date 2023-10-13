@@ -12,6 +12,7 @@ import ButtonGoUp from "@/components/Shared/ButtonGoUp";
 import { motion, useAnimation } from "framer-motion";
 import NavBar from "@/components/Shared/NavBar";
 import Banner from "@/components/Banner-Section/Banner";
+import { FaDownload } from "react-icons/fa";
 
 export default function Home() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -89,9 +90,35 @@ export default function Home() {
         <div className=" ">
           <section id="header-section">
             <Banner />
-            <a href="#my-projects-section">
-              <ButtonHeader text="My Projects" />
-            </a>
+            <div className="flex flex-wrap gap-2">
+              {" "}
+              <a href="#my-projects-section">
+                <ButtonHeader text="My Projects" />
+              </a>
+              <motion.button
+                initial={{ opacity: 0, y: 0, scaleY: 0 }}
+                whileInView={{ opacity: 1, y: 0, scaleY: 1 }}
+                transition={{
+                  delay: 0.6,
+                  ease: "ease",
+                  duration: 0.15,
+                  type: "spring",
+                }}
+                whileTap={{ scale: 0.9, y: 0 }}
+                type="button"
+                className="btn-cv flex  flex-row justify-center items-center gap-2 border border-1-white"
+              >
+                <a
+                  className="flex flex-wrap gap-2"
+                  download
+                  href="/Resume-JensErven-EN.pdf"
+                >
+                  {" "}
+                  <FaDownload size={20} fill={"white"} />
+                  <p>CV</p>
+                </a>
+              </motion.button>
+            </div>
           </section>
           <section>
             <MySkills />

@@ -110,16 +110,27 @@ button{
          
 .btn-grad {
   background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
-  padding: 15px 45px;
+  padding: 15px 25px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;            
   border-radius: 10px;
-  display: block;
+ 
 }
 
+.btn-cv{
+
+  padding: 15px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+
+}
 .btn-grad:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
