@@ -6,6 +6,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaLocationArrow,
+  FaLongArrowAltRight,
   FaMailBulk,
   FaMapMarked,
   FaPhone,
@@ -102,10 +103,10 @@ const Contact = () => {
               <h3>LinkedIn</h3>
               <p>
                 <a
-                  className="hover:underline"
+                  className="hover:underline flex items-center gap-2"
                   href="https://www.linkedin.com/in/jens-erven-9b9758194/"
                 >
-                  View profile
+                  View profile <FaLongArrowAltRight className="fill-white" />
                 </a>
               </p>
             </div>
@@ -121,10 +122,11 @@ const Contact = () => {
               <h3>Github</h3>
               <p>
                 <a
-                  className="hover:underline"
+                  className="hover:underline flex gap-2 items-center"
                   href="https://github.com/JensErven"
                 >
                   View profile
+                  <FaLongArrowAltRight className="fill-white" />
                 </a>
               </p>
             </div>

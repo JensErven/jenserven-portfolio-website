@@ -93,7 +93,7 @@ const MySkills = () => {
       <h3>What skills I have</h3>
       <div className="underline-div"></div>
       <div className="relative w-full rounded-lg">
-        <div className=" relative  flex flex-wrap items-center justify-center gap-14 py-14 ">
+        <div className=" relative  flex flex-wrap items-center justify-center gap-14 py-8 ">
           {skillsInfo.map((skill, index) => (
             <SkillCard key={index} skillInfo={skill} />
           ))}

@@ -13,9 +13,11 @@ const Banner = () => {
       transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
     >
       <p>Hello, my name is</p>
-      <h1>Jens Erven</h1>
+      <h1>
+        <span>Jens Erven</span>
+      </h1>
       <h2 className="mb-4">
-        I am a <span>Full stack developer</span>
+        I am a Full stack developer
         <br></br>
         From Belgium, Leuven.
       </h2>
