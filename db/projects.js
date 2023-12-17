@@ -27,7 +27,7 @@ import {
 } from "firebase/storage";
 
 export async function uploadProject(data) {
-  const { thumbnailFile, ...restData } = data;
+  const { thumbnailFile, skillTags, images, ...restData } = data;
 
   // Add the createdAt and updatedAt fields to the data object
   const timestamp = serverTimestamp();
@@ -56,6 +56,29 @@ export async function uploadProject(data) {
     });
     updatedData.thumbnailUrl = previewImageUrl;
 
+    // Upload other images to Firebase Storage and get their URLs
+    const imageUrls = await Promise.all(
+      images.map(async (imageFile) => {
+        const imageId = uuidv4();
+        const imageRef = ref(storage, `projectImages/${imageId}`);
+
+        await uploadBytes(imageRef, imageFile);
+
+        return getDownloadURL(imageRef);
+      })
+    );
+
+    updatedData.images = imageUrls;
+
+    // Modify the structure of skillTags before saving
+    const processedSkillTags = skillTags.map((tag) => ({
+      name: tag.name,
+      icon: tag.icon.name,
+      color: tag.color,
+    }));
+    updatedData.skillTags = processedSkillTags;
+
+    console.log(images);
     // Add the data to the "readings" collection
     await addDoc(projectsRef, updatedData);
     console.log("project uploaded successfully");

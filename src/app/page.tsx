@@ -106,7 +106,7 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.9, y: 0 }}
                 type="button"
-                className="btn-cv flex  flex-row justify-center items-center gap-2 border border-1-white"
+                className="btn-cv flex  flex-row justify-center items-center gap-2 border border-1-white rounded-md"
               >
                 <a
                   className="flex flex-wrap gap-2"

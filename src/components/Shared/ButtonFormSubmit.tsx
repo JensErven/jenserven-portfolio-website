@@ -5,7 +5,7 @@ import React from "react";
 const ButtonFormSubmit = ({ text }: { text: string }) => {
   return (
     <motion.button
-      className="btn-grad"
+      className="btn-grad  rounded-md"
       type="submit"
       whileTap={{ scale: 0.9, y: 0 }}
     >

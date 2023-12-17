@@ -22,56 +22,47 @@ const MySkills = () => {
   const skillsInfo = [
     {
       title: "React",
-      description:
-        "Building dynamic and interactive web applications using React for a seamless user experience.",
+
       icon: <FaReact size={40} className="fill-[#61DBFB]" />,
     },
     {
       title: "HTML",
-      description:
-        "Proficient in HTML5, the foundation of web development, to create structured and accessible web pages.",
+
       icon: <FaHtml5 size={40} className="fill-[#E34F26]" />,
     },
     {
       title: "CSS",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaCss3 size={40} className="fill-[#2965f1]" />,
     },
     {
       title: "Laravel",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaLaravel size={40} className="fill-[#FF2D20]" />,
     },
     {
       title: "Android",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaAndroid size={40} className="fill-emerald-500" />,
     },
     {
       title: "Php",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaPhp size={40} className="fill-[#777BB4]" />,
     },
     {
       title: "Unity",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaUnity size={40} className="fill-slate-100" />,
     },
     {
       title: "Angular",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaAngular size={40} className="fill-red-500" />,
     },
     {
       title: "NodeJs",
-      description:
-        "Developing robust web applications with Laravel, focusing on scalability and maintainability.",
+
       icon: <FaNodeJs size={40} className="fill-[#3C873A]" />,
     },
   ];

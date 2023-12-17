@@ -92,7 +92,7 @@ const Testimonials = () => {
       ></motion.div>
 
       <div
-        className={`mt-4 pb-14 ${
+        className={`mt-4 pb-10 ${
           isMobile ? "w-full" : "grid grid-cols-3 gap-x-4 gap-y-14"
         }`}
       >

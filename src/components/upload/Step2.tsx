@@ -15,7 +15,7 @@ const Step2 = ({
   const handleThumbnailFileChange = (e) => {
     const file = e.target.files[0];
     const allowedTypes = ["image/jpeg", "image/png"]; // Add more image MIME types if needed
-    const maxSize = 1 * 1024 * 1024; // 1MB in bytes
+    const maxSize = 5 * 1024 * 1024; // 1MB in bytes
     setFileName(file.name);
 
     if (file) {

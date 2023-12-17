@@ -1,17 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, createElement } from "react";
 import "../../../styles/ProjectCard.css"; // Import the CSS file
 import { skip } from "node:test";
 import Link from "next/link";
+import { DiIllustrator } from "react-icons/di";
+
 import {
-  FaAngular,
-  FaCss3,
-  FaHtml5,
-  FaJava,
-  FaLaravel,
-  FaPython,
   FaReact,
+  FaHtml5,
+  FaCss3,
+  FaLaravel,
+  FaAndroid,
+  FaPhp,
+  FaUnity,
+  FaAngular,
+  FaNodeJs,
   FaVuejs,
+  FaBootstrap,
+  FaPython,
+  FaJava,
+  FaSwift,
+  FaDocker,
+  FaGit,
+  FaSass,
+  FaAws,
 } from "react-icons/fa";
 
 const ProjectCard = ({
@@ -26,7 +38,27 @@ const ProjectCard = ({
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false); // Track hover state
 
-  const skillTags = ["Javascript", "React", "Tailwind"];
+  // Create a mapping object that pairs string values with corresponding icon components
+  const iconMapping = {
+    React: FaReact,
+    HTML: FaHtml5,
+    CSS: FaCss3,
+    Laravel: FaLaravel,
+    Android: FaAndroid,
+    Php: FaPhp,
+    Unity: FaUnity,
+    Angular: FaAngular,
+    NodeJs: FaNodeJs,
+    "Vue.js": FaVuejs,
+    Bootstrap: FaBootstrap,
+    Python: FaPython,
+    Java: FaJava,
+    Swift: FaSwift,
+    Docker: FaDocker,
+    Git: FaGit,
+    Sass: FaSass,
+    AWS: FaAws,
+  };
 
   const handleCardClick = () => {
     // Call the openOverlay function passed from MyProjects or higher component
@@ -59,10 +91,27 @@ const ProjectCard = ({
     setIsHovered(false); // Set hover state to false
     setTilt({ x: 0, y: 0 }); // Reset tilt when mouse leaves
   };
+
+  const getBorderColor = () => {
+    // Replace 'category' with the property name in your project object that holds the category value
+    const category = project.category; // Example: 'Web Development' or 'App Development'
+
+    // Assign different border colors based on categories
+    switch (category) {
+      case "Web":
+        return "border-pink-600";
+      case "App":
+        return "border-indigo-600";
+      case "VR":
+        return "border-cyan-400";
+      default:
+        return "border-stone-200";
+    }
+  };
   return (
     // <Link href={`/projects/${project.id}`}>
     <div
-      className={`project-card  rounded-lg h-fit text-left shadow-lg  cursor-pointer  ${
+      className={`project-card  rounded-lg h-fit text-left shadow-lg  cursor-pointer relative  ${
         isHovered ? "hovered" : "" // Apply the 'hovered' class when hovered
       }`}
       style={{
@@ -75,74 +124,51 @@ const ProjectCard = ({
       onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
     >
+      {project.isClientProject && (
+        <>
+          {" "}
+          <div className="absolute top-[2px] left-[2px] px-3 py-1 flex items-center justify-center bg-pink-700 shadow-slate-900 shadow-inner rounded-br-2xl rounded-tl-lg rounded-bl-md rounded-tr-md overflow-hidden">
+            <p>Client Project</p>
+            <div className="shine"></div>
+          </div>
+        </>
+      )}
+
       <div className="projectcard-imagepreview w-full  bg-black h-48 rounded-lg lg:h-56 xl:h-64 md:h-56 sm:h-56">
         <img
           src={`${project.thumbnailUrl}`}
-          className="object-cover w-full h-full rounded-t-lg rounded-b-none border-pink-600 border-b-4"
+          className={`object-cover w-full h-full rounded-t-lg rounded-b-none ${getBorderColor()} border-b-4`}
         />
       </div>
       <div className="p-4">
         <h3 className="mt-2 capitalize font-bold ">{project.title}</h3>
-        <p className="pb-4 " style={{ minHeight: "fit-content" }}>
-          {/* <span>{project.previewDescription}</span> */}
-
-          {/* {project.previewDescription.slice(0, 140)}
-            {project.previewDescription.length > 140 && (
-              <>
-                {" "}
-                <span className="text-white">...</span>
-              </>
-            )} */}
+        <p className="pb-4 text-stone-200" style={{ minHeight: "fit-content" }}>
+          {project?.subtitle}
         </p>
-        <div className="flex-row gap-2 flex-wrap inline-flex">
-          {project.skillTags.map((skill: string, index: number) => (
-            <>
-              <div className="flex justify-center items-center border-white border-solid  border  px-2   rounded-md capitalize gap-2">
-                <FaPython size={15} className="fill-white" />
+        <div className="flex gap-2 flex-wrap ">
+          {project.skillTags.map((skill, index: number) => {
+            const iconName = skill.name; // For example, iconName = 'FaPython'
+            // Check if the skill is present in the iconMapping
+            const IconComponent = iconMapping[iconName];
 
-                <p className="" key={index}>
-                  {skill}
-                </p>
+            return (
+              <div
+                key={index}
+                className="flex justify-center items-center bg-[#0f172a8c] px-2 py-1 rounded-md capitalize gap-2 "
+                style={{
+                  boxShadow: "4px 4px 2px  #0f172a8c, 4px 4px 2px  #0f172a8c",
+                }}
+              >
+                {IconComponent && (
+                  <IconComponent size={15} color={skill.color} />
+                )}{" "}
+                <p className="">{skill.name}</p>
               </div>
-            </>
-          ))}
+            );
+          })}
         </div>
       </div>
-
-      {/* <div
-          className="p-2 rounded-lg overflow-hidden "
-          style={{
-            backgroundColor: "#0f172a",
-            color: "whitesmoke",
-            // Make the container a flex container
-          }}
-        >
-          
-          <div
-            className={`skillTags-container flex flex-row  ${
-              isHovered ? "animated" : ""
-            }`}
-          >
-            {project.skillTags.map((skill: string, index: number) => (
-              <div className="flex flex-row" key={index}>
-                <div className="skillTag line-clamp-1 capitalize ">{skill}</div>
-                {index !== project.skillTags.length - 1 && (
-                  <span
-                    style={{
-                      color: "#f9a082",
-                      fontWeight: "bolder",
-                      padding: "0px 8px",
-                    }}
-                  >
-                    |
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div> */}
     </div>
-    // </Link>
   );
 };
 

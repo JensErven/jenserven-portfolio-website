@@ -6,6 +6,7 @@ import ButtonRegular from "../Shared/ButtonRegular";
 import image from "../../public/images/import & cook img1.png";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { getAllProjects } from "../../../db/projects";
+import ReactSwitch from "react-switch";
 
 const MyProjects = ({
   openOverlay,
@@ -15,6 +16,9 @@ const MyProjects = ({
   projectDetailsForOverlay: any;
 }) => {
   const [projects, setProjects] = useState([]);
+  const buttonFilterContent = ["All", "Web", "App", "VR"];
+  const [activeFilter, setActiveFilter] = React.useState("All");
+
   useEffect(() => {
     const fetchProjects = async () => {
       const fetchedProjects = await getAllProjects();
@@ -24,19 +28,9 @@ const MyProjects = ({
     fetchProjects();
   }, []);
 
-  const [activeFilter, setActiveFilter] = React.useState("All");
-  const [animateProjects, setAnimateProjects] = React.useState([]);
-  useEffect(() => {
-    if (activeFilter === "All") {
-      setAnimateProjects(projects);
-    } else {
-      setAnimateProjects(
-        projects.filter((project) => project.category === activeFilter)
-      );
-    }
-  }, [activeFilter, projects]);
-
-  const buttonFilterContent = ["All", "Web Development", "Mobile App", "VR"];
+  const filteredProjects = projects.filter(
+    (project) => activeFilter === "All" || project.category === activeFilter
+  );
 
   useEffect(() => {
     console.log(projects);
@@ -59,14 +53,18 @@ const MyProjects = ({
         whileInView={{ opacity: 1, scaleX: 1 }}
         transition={{ delay: 0.2, ease: "linear", duration: 1, type: "spring" }}
       ></motion.div>
-      <div className=" mb-4 flex flex-wrap justify-center gap-2 items-center">
-        {buttonFilterContent.map((item) => (
-          <ButtonFilter
-            text={item}
-            active={item === activeFilter}
-            setActiveFilter={setActiveFilter}
-          />
-        ))}
+      <div className="mb-4 flex items-center  w-full justify-between ">
+        {/* Right section with ButtonFilter components */}
+        <div className="flex flex-wrap gap-2 justify-center w-full">
+          {buttonFilterContent.map((item) => (
+            <ButtonFilter
+              key={item}
+              text={item}
+              active={item === activeFilter}
+              setActiveFilter={setActiveFilter}
+            />
+          ))}
+        </div>
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 grid-cols-1  gap-4  ">
         {activeFilter === "All" ? (
@@ -112,7 +110,7 @@ const MyProjects = ({
         ) : (
           <>
             <AnimatePresence>
-              {animateProjects.map((project) => (
+              {filteredProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   initial={{

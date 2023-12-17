@@ -1,18 +1,37 @@
-import React, { useEffect } from "react";
-import {
-  FaArrowAltCircleLeft,
-  FaArrowLeft,
-  FaArrowRight,
-  FaGithub,
-  FaGlobe,
-  FaLongArrowAltLeft,
-  FaLongArrowAltRight,
-  FaPython,
-  FaRegArrowAltCircleLeft,
-} from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+
 import "../../../styles/scrollbar.css";
 import { AnimatePresence, motion } from "framer-motion";
-
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {
+  FaArrowLeft,
+  FaGithub,
+  FaGlobe,
+  FaLongArrowAltRight,
+  FaReact,
+  FaHtml5,
+  FaCss3,
+  FaLaravel,
+  FaAndroid,
+  FaPhp,
+  FaUnity,
+  FaAngular,
+  FaNodeJs,
+  FaVuejs,
+  FaBootstrap,
+  FaPython,
+  FaJava,
+  FaSwift,
+  FaDocker,
+  FaGit,
+  FaSass,
+  FaAws,
+  FaArrowsAltV,
+} from "react-icons/fa";
+import CarouselComponent from "./CarouselComponent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 const ProjectDetailsOverlay = ({
   onClose,
   projectDetails,
@@ -22,6 +41,59 @@ const ProjectDetailsOverlay = ({
   projectDetails: any;
   isOverlayOpen: boolean;
 }) => {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const [allMedia, setAllMedia] = useState([]);
+  useEffect(() => {
+    if (
+      projectDetails.images.length > 0 &&
+      projectDetails.thumbnailUrl !== ""
+    ) {
+      const updatedMedia = [
+        projectDetails.thumbnailUrl,
+        ...projectDetails.images,
+      ];
+      setAllMedia(updatedMedia);
+    }
+  }, [projectDetails.images, projectDetails.thumbnailUrl]);
+
+  const iconMapping = {
+    React: FaReact,
+    HTML: FaHtml5,
+    CSS: FaCss3,
+    Laravel: FaLaravel,
+    Android: FaAndroid,
+    Php: FaPhp,
+    Unity: FaUnity,
+    Angular: FaAngular,
+    NodeJs: FaNodeJs,
+    "Vue.js": FaVuejs,
+    Bootstrap: FaBootstrap,
+    Python: FaPython,
+    Java: FaJava,
+    Swift: FaSwift,
+    Docker: FaDocker,
+    Git: FaGit,
+    Sass: FaSass,
+    AWS: FaAws,
+  };
+
+  const getBackgroundColor = () => {
+    // Replace 'category' with the property name in your project object that holds the category value
+    const category = projectDetails.category; // Example: 'Web Development' or 'App Development'
+
+    // Assign different border colors based on categories
+    switch (category) {
+      case "Web":
+        return "bg-pink-600";
+      case "App":
+        return "bg-indigo-600";
+      case "VR":
+        return "bg-cyan-400";
+      default:
+        return "bg-stone-200";
+    }
+  };
   const handleCloseOverlay = () => {
     // Call the openOverlay function passed from MyProjects or higher component
     onClose();
@@ -72,6 +144,26 @@ const ProjectDetailsOverlay = ({
     display: "inline-block", // Keep it inline to wrap the icons
     cursor: "pointer", // Add cursor pointer for interaction
   };
+
+  function isVideo(url) {
+    return (
+      url.endsWith(".mp4") ||
+      url.endsWith(".avi") ||
+      url.endsWith(".webm") ||
+      url.endsWith(".mkv")
+    );
+  }
+
+  const truncateDescription = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return `${text.slice(0, maxLength)}...`;
+    }
+    return text;
+  };
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
   return (
     <AnimatePresence>
       {isOverlayOpen && (
@@ -120,85 +212,108 @@ const ProjectDetailsOverlay = ({
                 </h2>
                 <h3>{projectDetails.previewDescription}</h3>
               </div>
+              <CarouselComponent
+                allMedia={allMedia}
+                category={projectDetails.category}
+              />
 
-              <div
-                className="bg-slate-900 w-full rounded-md relative"
-                style={{ height: "350px" }}
-              >
-                <img
-                  className="object-cover w-full h-full rounded-md"
-                  src={projectDetails.thumbnailUrl}
-                ></img>
-                <FaArrowLeft
-                  size={30}
-                  className="absolute top-1/2 -translate-y-1/2 left-1 fill-pink-500"
-                />
-                <FaArrowRight
-                  size={30}
-                  className="absolute top-1/2 -translate-y-1/2 right-1 fill-pink-500"
-                />
-              </div>
               <div>
                 {" "}
                 <div className="flex flex-row items-center gap-2">
-                  <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
+                  <div
+                    className={`${getBackgroundColor()} w-4 h-1 rounded-lg`}
+                  ></div>
                   <h3 className="h3-white-bold">About</h3>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  vehicula arcu nec est fringilla, eu fermentum purus fringilla.
-                  Nulla facilisi. Sed eu nisl nec metus auctor eleifend a non
-                  lectus. Sed sed eros eu augue cursus finibus. Integer at augue
-                  non nisi feugiat ullamcorper. Vivamus auctor rhoncus justo, a
-                  aliquet erat tincidunt eget.
+                  {showFullDescription
+                    ? projectDetails.description
+                    : truncateDescription(projectDetails.description, 500)}
                 </p>
+                {!showFullDescription && (
+                  <button
+                    onClick={toggleDescription}
+                    className="mt-2 px-4 py-2 rounded-lg focus:outline-none flex gap-2 items-center flex-row w-fit font-thin  border-solid border-1-white border"
+                  >
+                    <p>Read more</p>
+                    <FontAwesomeIcon
+                      icon={faArrowDown}
+                      className="fill-white text-white"
+                    />
+                  </button>
+                )}
               </div>
               <div>
                 {" "}
                 <div className="flex flex-row items-center gap-2">
-                  <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
+                  <div
+                    className={`${getBackgroundColor()} w-4 h-1 rounded-lg`}
+                  ></div>
                   <h3 className="h3-white-bold">Technologies</h3>
                 </div>
-                <div className="flex-row gap-2 flex-wrap inline-flex mt-2">
-                  {projectDetails.skillTags.map(
-                    (skill: string, index: number) => (
-                      <>
-                        <div className="flex justify-center items-center border-white border-solid  border  px-2   rounded-md capitalize gap-2">
-                          <FaPython size={15} className="fill-white" />
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {projectDetails.skillTags.map((skill, index: number) => {
+                    const iconName = skill.name; // For example, iconName = 'FaPython'
+                    // Check if the skill is present in the iconMapping
+                    const IconComponent = iconMapping[iconName];
 
-                          <p className="">{skill}</p>
-                        </div>
-                      </>
-                    )
-                  )}
+                    return (
+                      <div
+                        key={index}
+                        className="flex justify-center items-center bg-[#0f172a8c] px-2 py-1 rounded-md capitalize gap-2 "
+                        style={{
+                          boxShadow:
+                            "4px 4px 2px  #0f172a8c, 4px 4px 2px  #0f172a8c",
+                        }}
+                      >
+                        {/* Render the icon dynamically */}
+                        {IconComponent && (
+                          <IconComponent size={15} color={skill.color} />
+                        )}{" "}
+                        {/* Display the skill name */}
+                        <p className="">{skill.name}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               <div className="flex flex-row justify-between mt-4 ">
-                <div>
+                <div className="flex flex-col gap-2">
                   <div className="flex flex-row items-center gap-2">
-                    <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
+                    <div
+                      className={`${getBackgroundColor()} w-4 h-1 rounded-lg`}
+                    ></div>
                     <FaGlobe size={20} className="fill-white" />
                     <h3 className="h3-white-bold">Website</h3>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
-                    <p className="text-[#f9a082]">view website</p>
-                    <FaLongArrowAltRight className="fill-[#f9a082]" />
+                    <a
+                      href={projectDetails.websiteUrl}
+                      className="px-4 py-2 rounded-lg focus:outline-none flex gap-2 items-center flex-row w-fit border-solid border-1-white border"
+                    >
+                      {" "}
+                      <p>View website</p>
+                      <FaLongArrowAltRight className="fill-white" />
+                    </a>
                   </div>
                 </div>
-
-                <div>
+                <div className="flex flex-col gap-2">
                   <div className="flex flex-row items-center gap-2">
-                    <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
-                    <FaGithub
-                      onClick={handleGithubClick}
-                      size={20}
-                      className="fill-white"
-                    />
+                    <div
+                      className={`${getBackgroundColor()} w-4 h-1 rounded-lg`}
+                    ></div>
+                    <FaGithub size={20} className="fill-white" />
                     <h3 className="h3-white-bold">Github</h3>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
-                    <p className="text-[#f9a082]">view code</p>
-                    <FaLongArrowAltRight className="fill-[#f9a082]" />
+                    <a
+                      href={projectDetails.githubUrl}
+                      className="px-4 py-2 rounded-lg focus:outline-none flex gap-2 items-center flex-row w-fit  border-solid border-1-white border"
+                    >
+                      {" "}
+                      <p>view code</p>
+                      <FaLongArrowAltRight className="fill-white" />
+                    </a>
                   </div>
                 </div>
               </div>

@@ -11,6 +11,22 @@ const ButtonFilter = ({
   active: boolean;
   setActiveFilter: any;
 }) => {
+  const getBackgroundColor = () => {
+    // Replace 'category' with the property name in your project object that holds the category value
+    const category = text; // Example: 'Web Development' or 'App Development'
+
+    // Assign different border colors based on categories
+    switch (category) {
+      case "Web":
+        return "bg-pink-600";
+      case "App":
+        return "bg-indigo-600";
+      case "VR":
+        return "bg-cyan-400";
+      default:
+        return "bg-stone-200";
+    }
+  };
   return (
     <motion.button
       className={`${
@@ -27,7 +43,7 @@ const ButtonFilter = ({
       ) : (
         <>
           {" "}
-          <div className="bg-pink-600 w-4 h-1 rounded-lg"></div>
+          <div className={`${getBackgroundColor()} w-4 h-1 rounded-lg`}></div>
         </>
       )}
       {text}

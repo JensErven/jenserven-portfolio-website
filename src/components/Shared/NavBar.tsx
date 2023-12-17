@@ -17,7 +17,7 @@ const NavBar = () => {
             Contact me
           </button>
         </a>{" "}
-        <button className="flex flex-row items-center text-white border border-solid-white h-full  rounded-md gap-2  secondary-button">
+        <button className="flex flex-row items-center text-white border border-solid-white h-full rounded-md gap-2 secondary-button">
           EN
           <FaCaretDown size={15} fill={"white"} />
         </button>

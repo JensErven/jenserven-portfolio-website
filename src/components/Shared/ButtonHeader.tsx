@@ -6,7 +6,7 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 const ButtonHeader = ({ text }: { text: string }) => {
   return (
     <motion.button
-      className="btn-grad flex flex-row gap-2"
+      className="btn-grad flex flex-row gap-2 rounded-md"
       type="button"
       initial={{ opacity: 0, y: 0, scaleY: 0 }}
       whileInView={{ opacity: 1, y: 0, scaleY: 1 }}
