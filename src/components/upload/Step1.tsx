@@ -117,6 +117,21 @@ const Step1 = ({
           />
         </div>
         <div className="step-content">
+          <label>
+            <p className="text-white">Ondertitels van project:</p>
+          </label>
+          <input
+            required
+            className="w-full px-3 py-2 text-white bg-slate-800 rounded"
+            placeholder="vb. extra technologies, type of website/app service"
+            type="text"
+            value={formData.subtitle}
+            onChange={(e) =>
+              setFormData({ ...formData, subtitle: e.target.value })
+            }
+          />
+        </div>
+        <div className="step-content">
           <label htmlFor="Previewdescription">
             <p className="text-white capitalize">description:</p>
           </label>
@@ -127,7 +142,6 @@ const Step1 = ({
             placeholder="Over wat gaat dit project?"
             value={formData.description}
             onChange={handleDescriptionChange}
-            maxLength={450}
             id="Previewdescription"
           />
         </div>

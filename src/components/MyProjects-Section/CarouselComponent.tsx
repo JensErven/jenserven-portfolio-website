@@ -95,7 +95,7 @@ const CarouselComponent = ({
         {allMedia.map((media: string, index: number) => (
           <div
             key={index}
-            className={`cursor-pointer w-80 flex items-center justify-center rounded-lg ${
+            className={`cursor-pointer w-80 flex items-center justify-center rounded-lg bg-slate-900  bg-opacity-50 ${
               index === currentIndex ? `border-2 ${getBorderColor()}` : ""
             }`}
             onClick={() => setCurrentIndex(index)}

@@ -16,6 +16,7 @@ const page = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     title: "",
+    subtitle: "",
     description: "",
     category: "",
     skillTags: [],

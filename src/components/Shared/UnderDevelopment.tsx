@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ButtonHeader from "./ButtonHeader";
 
 const UnderDevelopment = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
 
   const closePopup = () => {
     setIsPopupOpen(false);
